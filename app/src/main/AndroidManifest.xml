@@ -47,7 +47,8 @@
             android:name=".Messaging"
             android:label="Messaging"/>
         <activity android:name=".Contact"/>
-        <activity android:name=".NewMessage">
+        <activity android:name=".NewMessage"
+                  android:label="New Message">
         </activity>
         <activity android:name=".InfoCentre"></activity>
         <activity android:name=".SignUp"></activity>

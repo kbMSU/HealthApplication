@@ -1,6 +1,8 @@
 package opensource.karthik.healthapplication;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,6 +38,15 @@ public class Messaging extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messaging);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.emailButton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToNextActivity = new Intent(getApplicationContext(), NewMessage.class);
+                startActivity(goToNextActivity);
+            }
+        });
 
         messagesView = (ListView) findViewById(R.id.messages);
         noMessagesView = (TextView) findViewById(R.id.no_messages);
@@ -107,8 +118,5 @@ public class Messaging extends AppCompatActivity {
         messageCount.setValue(listOfMessages.size());
     }
 
-    public void newMessageClick(View v) {
-        Intent goToNextActivity = new Intent(getApplicationContext(), NewMessage.class);
-        startActivity(goToNextActivity);
-    }
+
 }
