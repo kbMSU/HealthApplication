@@ -13,7 +13,12 @@
     <uses-feature
         android:name="@string/step_counter"
         android:required="false"/>
-    s
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -41,10 +46,11 @@
         <activity
             android:name=".Messaging"
             android:label="Messaging"/>
-        <activity android:name=".InfoCentre"/>
         <activity android:name=".Contact"/>
         <activity android:name=".NewMessage">
         </activity>
+
+        <activity android:name=".SignUp"></activity>
     </application>
 
 </manifest>
