@@ -3,34 +3,36 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_profile"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import"/>
+            android:title="Profile"/>
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_healthtracker"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery"/>
+            android:title="Health Tracker"/>
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_appointments"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow"/>
+            android:title="Appointments"/>
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_messaging"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools"/>
-    </group>
+            android:title="Messaging"/>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share"/>
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send"/>
-        </menu>
-    </item>
+        <item
+            android:id="@+id/nav_infocentre"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Health Info Centre"/>
+
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Contacts"/>
+
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Logout"/>
+    </group>
 
 </menu>

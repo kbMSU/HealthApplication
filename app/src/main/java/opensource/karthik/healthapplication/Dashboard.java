@@ -1,6 +1,8 @@
 package opensource.karthik.healthapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.health.HealthStats;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -80,18 +82,27 @@ public class Dashboard extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_profile) {
+            Intent goToNextActivity = new Intent(getApplicationContext(), Profile.class);
+            startActivity(goToNextActivity);
+        } else if (id == R.id.nav_healthtracker) {
+            Intent goToNextActivity = new Intent(getApplicationContext(), HealthTracker.class);
+            startActivity(goToNextActivity);
+        } else if (id == R.id.nav_appointments) {
+            Intent goToNextActivity = new Intent(getApplicationContext(), Appointments.class);
+            startActivity(goToNextActivity);
+        } else if (id == R.id.nav_messaging) {
+            Intent goToNextActivity = new Intent(getApplicationContext(), Messaging.class);
+            startActivity(goToNextActivity);
+        } else if (id == R.id.nav_infocentre) {
+            Intent goToNextActivity = new Intent(getApplicationContext(), InfoCentre.class);
+            startActivity(goToNextActivity);
+        } else if (id == R.id.nav_contact) {
+            Intent goToNextActivity = new Intent(getApplicationContext(), Contact.class);
+            startActivity(goToNextActivity);
+        } else if (id == R.id.logout) {
+            Intent goToNextActivity = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(goToNextActivity);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
