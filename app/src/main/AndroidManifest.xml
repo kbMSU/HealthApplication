@@ -24,7 +24,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,8 @@
         <activity android:name=".Profile" />
         <activity android:name=".Appointments" />
         <activity android:name=".HealthTracker" />
-        <activity android:name=".Messaging" />
+        <activity android:name=".Messaging"
+                  android:label="Messaging"/>
         <activity android:name=".InfoCentre" />
         <activity android:name=".Contact"></activity>
     </application>
