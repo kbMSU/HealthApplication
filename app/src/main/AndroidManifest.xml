@@ -6,10 +6,16 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-feature
-        android:name="@string/step_detector" android:required="false"/>
+        android:name="@string/step_detector"
+        android:required="false" />
     <uses-feature
-        android:name="@string/step_counter" android:required="false"/>
+        android:name="@string/step_counter"
+        android:required="false" />
     s
     <application
         android:allowBackup="true"
@@ -37,7 +43,8 @@
         <activity android:name=".HealthTracker" />
         <activity android:name=".Messaging" />
         <activity android:name=".InfoCentre" />
-        <activity android:name=".Contact"></activity>
+        <activity android:name=".Contact" />
+        <activity android:name=".SignUp"></activity>
     </application>
 
 </manifest>
