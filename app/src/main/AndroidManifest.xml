@@ -49,7 +49,7 @@
         <activity android:name=".Contact"/>
         <activity android:name=".NewMessage">
         </activity>
-
+        <activity android:name=".InfoCentre"></activity>
         <activity android:name=".SignUp"></activity>
     </application>
 
