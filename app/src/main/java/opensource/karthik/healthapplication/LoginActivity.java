@@ -136,6 +136,7 @@ public class LoginActivity extends AppCompatActivity {
                         // Create a database reference for that user
                         String id = task.getResult().getUser().getUid();
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
+
                         DatabaseReference thisUser = database.getReference(id);
                         DatabaseReference thisUserMessages = thisUser.child("messageCount");
                         thisUserMessages.setValue(0);
