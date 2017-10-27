@@ -15,8 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class HealthTracker extends AppCompatActivity implements SensorEventListener {
@@ -30,7 +28,7 @@ public class HealthTracker extends AppCompatActivity implements SensorEventListe
     private int stepCountBefore, stepCountAfter, totalStepCount=0;
     long timeStart, timeStop;
 
-    boolean activityRunning, startCount, stopCount;
+    boolean activityRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +59,11 @@ public class HealthTracker extends AppCompatActivity implements SensorEventListe
         });
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        //activityRunning = true;
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        //activityRunning = true;
         Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
         if (countSensor != null) {
             sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_UI);
@@ -80,9 +76,6 @@ public class HealthTracker extends AppCompatActivity implements SensorEventListe
     @Override
     protected void onPause() {
         super.onPause();
-        //activityRunning = false;
-// if you unregister the last listener, the hardware will stop detecting step events
-// sensorManager.unregisterListener(this);
     }
 
     public void calculateBMI(){
@@ -96,7 +89,6 @@ public class HealthTracker extends AppCompatActivity implements SensorEventListe
     public void startTracker(){
         if(!activityRunning) {
             activityRunning = true;
-            //startCount = true;
             stepCountBefore = totalStepCount;
             timeStart = System.currentTimeMillis();
         }
@@ -104,7 +96,6 @@ public class HealthTracker extends AppCompatActivity implements SensorEventListe
 
     public void stopTracker(){
         if(activityRunning) {
-            //stopCount = true;
             stepCountAfter = totalStepCount;
             timeStop = System.currentTimeMillis();
             calculateSteps();
