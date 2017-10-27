@@ -81,14 +81,26 @@ public class LoginActivity extends AppCompatActivity {
     public void loginClick(View v) {
         String email = emailEntry.getText().toString();
         String password = passwordEntry.getText().toString();
+
+        if(email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(LoginActivity.this, "You must enter both an email and a password", Toast.LENGTH_LONG).show();
+            return;
+        } else if(password.length() < 6) {
+            Toast.makeText(LoginActivity.this, "The password must be at least 6 characters long", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         login(email,password);
     }
 
     public void signupClick(View v) {
-        String email = emailEntry.getText().toString();
+        /*String email = emailEntry.getText().toString();
         String password = passwordEntry.getText().toString();
         Log.d("EMAIL", email);
-        signup(email,password);
+        signup(email,password);*/
+
+        Intent goToNextActivity = new Intent(getApplicationContext(), SignupActivity.class);
+        startActivity(goToNextActivity);
     }
 
     public void login(String email, String password) {
@@ -115,7 +127,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void signup(String email, String password) {
-        mAuth.createUserWithEmailAndPassword(email, password)
+        /*mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -142,6 +154,6 @@ public class LoginActivity extends AppCompatActivity {
                         thisUserMessages.setValue(0);
                     }
                 }
-            });
+            });*/
     }
 }
