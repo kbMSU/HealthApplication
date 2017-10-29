@@ -3,6 +3,7 @@
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.READ_PROFILE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
@@ -14,10 +15,11 @@
         android:name="@string/step_counter"
         android:required="false"/>
 
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PROFILE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 
     <application
         android:allowBackup="true"
@@ -40,20 +42,37 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Profile"/>
+        <activity android:name=".Profile"
+            android:label="Profile"/>
         <activity android:name=".Appointments"/>
-        <activity
-            android:name=".HealthTracker"
-            android:label="Health Tracker"/>
+        <activity 
+                  android:name=".HealthTracker"
+                  android:label="Health Tracker"/>
         <activity
             android:name=".Messaging"
             android:label="Messaging"/>
-        <activity android:name=".Contact"/>
-        <activity android:name=".NewMessage"
-                  android:label="New Message">
+        <activity android:name=".Contact"
+            android:label="Emergency Contacts"/>
+        <activity
+            android:name=".NewMessage"
+            android:label="New Message"/>
+        <activity android:name=".InfoCentre"
+            android:label="Health Information Center"/>
+        <activity android:name=".SignUp"/>
+        <activity
+            android:name=".SignupActivity"
+            android:label="Signup">
         </activity>
-        <activity android:name=".InfoCentre"></activity>
-        <activity android:name=".SignUp"></activity>
+        <activity
+            android:name=".CompleteSignup"
+            android:label="Signup">
+        </activity>
+        <activity android:name=".MessageDetails"
+            android:label="Message Details">
+        </activity>
     </application>
+
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
 
 </manifest>
