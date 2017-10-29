@@ -45,7 +45,9 @@
         <activity android:name=".Profile"
             android:label="Profile"/>
         <activity android:name=".Appointments"/>
-        <activity android:name=".HealthTracker"/>
+        <activity 
+                  android:name=".HealthTracker"
+                  android:label="Health Tracker""/>
         <activity
             android:name=".Messaging"
             android:label="Messaging"/>
