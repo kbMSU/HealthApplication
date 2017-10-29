@@ -57,8 +57,12 @@
             android:name=".SignupActivity"
             android:label="Signup">
         </activity>
-        <activity android:name=".CompleteSignup"
+        <activity
+            android:name=".CompleteSignup"
             android:label="Signup">
+        </activity>
+        <activity android:name=".MessageDetails"
+            android:label="Message Details">
         </activity>
     </application>
 

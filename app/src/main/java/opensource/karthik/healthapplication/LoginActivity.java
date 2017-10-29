@@ -43,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        fab.setVisibility(View.GONE);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -94,11 +95,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void signupClick(View v) {
-        /*String email = emailEntry.getText().toString();
-        String password = passwordEntry.getText().toString();
-        Log.d("EMAIL", email);
-        signup(email,password);*/
-
         Intent goToNextActivity = new Intent(getApplicationContext(), SignupActivity.class);
         startActivity(goToNextActivity);
     }
@@ -126,34 +122,5 @@ public class LoginActivity extends AppCompatActivity {
             });
     }
 
-    public void signup(String email, String password) {
-        /*mAuth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    Log.d("TAG", "createUserWithEmail:onComplete:" + task.isSuccessful());
 
-                    // If sign in fails, display a message to the user. If sign in succeeds
-                    // the auth state listener will be notified and logic to handle the
-                    // signed in user can be handled in the listener.
-                    if (!task.isSuccessful()) {
-                        Toast.makeText(LoginActivity.this, "Failed to create a user with that email and password",
-                                Toast.LENGTH_LONG).show();
-                        Log.d("SIGNUP ERROR", task.getException().toString());
-                    } else {
-                        // Show that the user has been created
-                        Toast.makeText(LoginActivity.this, "User has been created",
-                                Toast.LENGTH_LONG).show();
-
-                        // Create a database reference for that user
-                        String id = task.getResult().getUser().getUid();
-                        FirebaseDatabase database = FirebaseDatabase.getInstance();
-
-                        DatabaseReference thisUser = database.getReference(id);
-                        DatabaseReference thisUserMessages = thisUser.child("messageCount");
-                        thisUserMessages.setValue(0);
-                    }
-                }
-            });*/
-    }
 }
