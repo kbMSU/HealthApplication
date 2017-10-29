@@ -66,16 +66,18 @@
 
     <Button
         android:id="@+id/send_button"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="33dp"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="35dp"
+        android:layout_marginLeft="18dp"
         android:layout_marginStart="18dp"
         android:onClick="SendMessage"
         android:text="Send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"/>
+        tools:layout_constraintLeft_creator="1"
+        />
 
     <TextView
         android:id="@+id/textView15"

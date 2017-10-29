@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,6 +35,8 @@ public class Messaging extends AppCompatActivity {
     DatabaseReference messageCount;
     DatabaseReference messages;
 
+    ArrayList<String> messageContent = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +59,8 @@ public class Messaging extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference thisUser = database.getReference(currentUser.getUid());
+        DatabaseReference profiles = database.getReference("profiles");
+        DatabaseReference thisUser = profiles.child(currentUser.getUid());
 
         messageCount = thisUser.child("messageCount");
         // Read message count from the database
@@ -101,15 +105,30 @@ public class Messaging extends AppCompatActivity {
             }
         });
 
+        messagesView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String thisMessage = messageContent.get(i);
+                Intent goToNextActivity = new Intent(getApplicationContext(), MessageDetails.class);
+                goToNextActivity.putExtra("content",thisMessage);
+                startActivity(goToNextActivity);
+            }
+        });
     }
 
     private void updateMessagesList(DataSnapshot snapshot) {
         ArrayList<String> listOfMessages = new ArrayList<>();
+
         Iterable<DataSnapshot> iter = snapshot.getChildren();
         for(DataSnapshot snap : iter) {
-            String message = snap.getValue(String.class);
-            listOfMessages.add(message);
+            String from = snap.child("from").getValue(String.class);
+            String subject = snap.child("subject").getValue(String.class);
+            String content = snap.child("content").getValue(String.class);
+
+            listOfMessages.add(from + " : " + subject);
+            messageContent.add(content);
         }
+
         ArrayAdapter<String> itemsAdapter =
                 new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, listOfMessages);

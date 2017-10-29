@@ -94,7 +94,8 @@ public class CompleteSignup extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         FirebaseUser current = FirebaseAuth.getInstance().getCurrentUser();
 
-        DatabaseReference thisUser = database.getReference(current.getUid());
+        DatabaseReference profiles = database.getReference("profiles");
+        DatabaseReference thisUser = profiles.child(current.getUid());
         DatabaseReference thisUserEmail = thisUser.child("email");
         thisUserEmail.setValue(savedEmail);
         DatabaseReference thisUserMessages = thisUser.child("messageCount");
