@@ -1,2 +1,3 @@
 # HealthApplication
-The github repository for ELEC5620 S2 2017
+
+An app to view UV exposure data sent from a custom made UV wristwatch
